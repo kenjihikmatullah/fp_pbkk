@@ -20,6 +20,7 @@ class CreateProductSnapshots extends Migration
             $table->text('description')->nullable();
             $table->smallInteger('weight');
             $table->smallInteger('stock')->default(0);
+            $table->smallInteger('quantity')->default(1);
             $table->timestamps();
 
             $table->foreignId('product_id')

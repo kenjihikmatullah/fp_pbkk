@@ -56,7 +56,13 @@
         <p>Berat: {{ $product->weight }} gr</p>
         <p>Stok: {{ $product->stock }}</p>
 
-        <button class="seemore_bt" style="margin-top: 24px;">BUY</button>
+        <form action="{{ route('order.create') }}" method="POST">
+          @csrf
+          
+          <input type="number" name="productQtys[]" placeholder="Jumlah" />
+          <input name="productIds[]" value="{{ $product->id }}" type="hidden" />
+          <button type="submit" class="seemore_bt" style="margin-top: 24px;">BUY</button>
+        </form>
       </div>
 
     </div>

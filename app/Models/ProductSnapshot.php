@@ -20,6 +20,7 @@ class ProductSnapshot extends Model
         'description',
         'weight',
         'stock',
+        'quantity',
         'product_id',
         'order_id'
     ];
