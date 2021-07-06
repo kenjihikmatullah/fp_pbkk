@@ -38,6 +38,10 @@
 
           <p>{{ $product->name }}</p>
           <p>{{ 'Rp.' . $product->price }}</p>
+          
+          <button onclick="window.location.href='{{ url('/products/' . strval($product->id)) }}'" class="seemore_bt" style="margin-top: 16px;">
+            DETAIL          
+          </button>
         </div>
         @endforeach
 
@@ -55,3 +59,8 @@
   </div>
   <!-- our furniture section end -->
 @endsection('content')
+
+@section('more_js')
+<script>
+</script>
+@endsection

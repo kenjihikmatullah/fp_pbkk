@@ -21,4 +21,5 @@ Route::get('/contact', [HomeController::class, 'index'])->name('contact');
 
 Route::prefix('/products')->group(function () {
   Route::get('/', [ProductController::class, 'index'])->name('products');
+  Route::get('/{id}', [ProductController::class, 'show'])->name('product.detail');
 });

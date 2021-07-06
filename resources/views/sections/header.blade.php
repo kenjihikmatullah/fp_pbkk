@@ -42,10 +42,10 @@
             </div>
           </div>
           <div class="middle_main">
-            <div class="shoping_bag"><img src="images/search-icon.png"></div>
+            <div class="shoping_bag"><img src="{{ url('images/search-icon.png') }}"></div>
           </div>
           <div class="right_main">
-            <div class="togle_main"><img src="images/shopping-bag.png"></div>
+            <div class="togle_main"><img src="{{ url('images/shopping-bag.png') }}"></div>
           </div>
         </div>
       </div>
@@ -63,9 +63,9 @@
             <div class="row">
               <div class="col-sm-1">
                 <p class="number_tetx">02/3</p>
-                <div class="line"><img src="images/linr-icon.png"></div>
+                <div class="line"><img src="{{ url('images/linr-icon.png') }}"></div>
                 <p class="number_tetx">02/3</p>
-                <div class="left_img"><img src="images/img-2.png"></div>
+                <div class="left_img"><img src="{{ url('images/img-2.png') }}"></div>
               </div>
               <div class="col-sm-5">
                 <h1 class="furniture_text">2021</h1>
@@ -76,7 +76,7 @@
                 <button class="furniture_bt">PRODUCT</button>
               </div>
               <div class="col-sm-6">
-                <div><img src="images/img-1.png"></div>
+                <div><img src="{{ url('images/img-1.png') }}"></div>
               </div>
             </div>
           </div>
