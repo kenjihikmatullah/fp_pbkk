@@ -40,6 +40,8 @@
 
       <div class="my-container">
         @foreach($products as $product)
+        <div>.</div>
+
         <div class="product">
           <img class="photo" src="{{ url('images/img-6.png') }}">
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -26,15 +27,25 @@ Route::prefix('products')->group(function () {
   Route::get('/{id}', [ProductController::class, 'show'])->name('product.detail');
 });
 
-Route::prefix('orders')->group(function () {
-  Route::post('/create', [OrderController::class, 'create'])->name('order.create');
-  Route::post('/store', [OrderController::class, 'store'])->name('order.store');
-});
+
 
 Route::prefix('auth')->group(function () {
   Route::get('login', [AuthController::class, 'loginGet'])->name('login.get');
   Route::post('login', [AuthController::class, 'loginPost'])->name('login.post');
-  Route::post('logout', [AuthController::class, 'logout'])->name('logout');
   Route::get('register', [AuthController::class, 'registerGet'])->name('register.get');
   Route::post('register', [AuthController::class, 'registerPost'])->name('register.post');
+});
+
+Route::middleware('auth')->group(function () {
+  Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+  Route::prefix('orders')->group(function () {
+    Route::post('/create', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/store', [OrderController::class, 'store'])->name('order.store');
+  });
+
+  Route::prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('cart');
+    Route::post('/', [CartController::class, 'store'])->name('cart.store');
+  });
 });

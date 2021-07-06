@@ -55,7 +55,9 @@
             <div class="shoping_bag"><img src="{{ url('images/search-icon.png') }}"></div>
           </div>
           <div class="right_main">
-            <div class="togle_main"><img src="{{ url('images/shopping-bag.png') }}"></div>
+            <a href="{{ route('cart') }}">
+              <div class="togle_main"><img src="{{ url('images/shopping-bag.png') }}"></div>
+            </a>
           </div>
         </div>
       </div>

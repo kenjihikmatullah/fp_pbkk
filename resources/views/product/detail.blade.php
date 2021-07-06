@@ -56,13 +56,23 @@
         <p>Berat: {{ $product->weight }} gr</p>
         <p>Stok: {{ $product->stock }}</p>
 
-        <form action="{{ route('order.create') }}" method="POST">
-          @csrf
-          
-          <input type="number" name="productQtys[]" placeholder="Jumlah" />
-          <input name="productIds[]" value="{{ $product->id }}" type="hidden" />
-          <button type="submit" class="seemore_bt" style="margin-top: 24px;">BUY</button>
-        </form>
+        <div style="display:flex; gap: 8px; justify-content: flex-start">
+          <form action="{{ route('cart.store') }}" method="POST">
+            @csrf
+
+            <input type="number" name="productQtys[]" placeholder="Jumlah" />
+            <input name="productIds[]" value="{{ $product->id }}" type="hidden" />
+            <button type="submit" class="seemore_bt" style="margin-top: 8px; max-width: 200px;">Tambah ke Keranjang</button>
+          </form>
+
+          <form action="{{ route('order.create') }}" method="POST">
+            @csrf
+
+            <input type="number" name="productQtys[]" placeholder="Jumlah" />
+            <input name="productIds[]" value="{{ $product->id }}" type="hidden" />
+            <button type="submit" class="seemore_bt" style="margin-top: 8px; max-width: 200px">Beli</button>
+          </form>
+        </div>
       </div>
 
     </div>
