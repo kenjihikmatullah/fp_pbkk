@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -28,4 +29,10 @@ Route::prefix('products')->group(function () {
 Route::prefix('orders')->group(function () {
   Route::post('/create', [OrderController::class, 'create'])->name('order.create');
   Route::post('/store', [OrderController::class, 'store'])->name('order.store');
+});
+
+Route::prefix('auth')->group(function () {
+  Route::get('login', [AuthController::class, 'loginGet'])->name('login.get');
+  Route::post('login', [AuthController::class, 'loginPost'])->name('login.post');
+  Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

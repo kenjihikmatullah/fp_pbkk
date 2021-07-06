@@ -38,7 +38,16 @@
         <div class="togle_3">
           <div class="left_main">
             <div class="menu_main">
-              <a href="#"><i class="fa fa-fw fa-user"></i> Login / Register</a>
+              @if(!auth()->check())
+              <a href="{{ route('login.get') }}"><i class="fa fa-fw fa-user"></i>Login</a>
+              @else
+              <span><i class="fa fa-fw fa-user"></i>{{ auth()->user()->name }}</span>
+              <button id="logoutBtn"><i class="fa fa-fw fa-lock"></i>Logout</button>
+
+              <form id="logoutForm" style="display: none;" action="{{ route('logout') }}" method="POST">
+                @csrf
+              </form>
+              @endif
             </div>
           </div>
           <div class="middle_main">
@@ -80,7 +89,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="carousel-item">
             <div class="row">
               <div class="col-sm-1">
@@ -139,3 +148,13 @@
   </div>
 </div>
 <!-- banner section end -->
+
+@section('more_js')
+<script>
+  $(document).ready(function() {
+    $('#logoutBtn').click(function() {
+      $('#logoutForm').submit();
+    });
+  });
+</script>
+@endsection
