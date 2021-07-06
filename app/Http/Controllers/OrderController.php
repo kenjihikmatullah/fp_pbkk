@@ -72,7 +72,7 @@ class OrderController extends Controller
             'receiver_name' => $request->receiverName,
             'receiver_address' => $request->receiverAddress,
             'receiver_phone' => $request->receiverPhone,
-            'customer_id' => 1 // TODO
+            'customer_id' => auth()->user()->id
         ]);
 
         $snapshots = [];
