@@ -40,6 +40,7 @@
             <div class="menu_main">
               @if(!auth()->check())
               <a href="{{ route('login.get') }}"><i class="fa fa-fw fa-user"></i>Login</a>
+              <a href="{{ route('register.get') }}"><i class="fa fa-fw fa-user"></i>Register</a>
               @else
               <span><i class="fa fa-fw fa-user"></i>{{ auth()->user()->name }}</span>
               <button id="logoutBtn"><i class="fa fa-fw fa-lock"></i>Logout</button>
