@@ -41,6 +41,7 @@
                 <th scope="col" class="sort" data-sort="budget">No HP</th>
                 <th scope="col">Harga Produk</th>
                 <th scope="col">Ongkir</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -58,6 +59,9 @@
                 </td>
                 <td class="budget">
                   Rp.{{ $order->shipping_fee }}
+                </td>
+                <td class="budget">
+                  {{ $order->status }}
                 </td>
 
                 <td class="text-right">
