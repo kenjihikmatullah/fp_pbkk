@@ -57,5 +57,8 @@ class ProductController extends Controller
 
     public function delete($id)
     {
+        Product::find($id)->delete();
+
+        return redirect()->route('admin.product');
     }
 }

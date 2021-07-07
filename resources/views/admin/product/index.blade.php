@@ -69,7 +69,7 @@
                       <a class="dropdown-item" href="{{ route('admin.product.edit', ['id' => $product->id]) }}">Edit</a>
                       <button class="dropdown-item btn-delete" data-toggle="modal" data-target="#delete-modal" data-id="{{ $product->id }}">Delete</button>
 
-                      <form method="POST" action="{{ route('admin.product.edit', ['id' => $product->id]) }}" id="form-{{ $product->id }}">
+                      <form method="POST" action="{{ route('admin.product.delete', ['id' => $product->id]) }}" id="form-{{ $product->id }}">
                         @csrf
                         @method('DELETE')
                       </form>
