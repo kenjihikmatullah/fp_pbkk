@@ -61,6 +61,12 @@ Route::middleware('auth')->group(function () {
       Route::put('/{id}', [Admin\ProductController::class, 'update'])->name('admin.product.update');
       Route::delete('/{id}', [Admin\ProductController::class, 'delete'])->name('admin.product.delete');
     });
+
+    Route::prefix('orders')->group(function () {
+      Route::get('/', [Admin\OrderController::class, 'index'])->name('admin.order');
+      Route::get('/{id}/edit', [Admin\OrderController::class, 'edit'])->name('admin.order.edit');
+      Route::put('/{id}', [Admin\OrderController::class, 'update'])->name('admin.order.update');
+    });
   });
 });
 

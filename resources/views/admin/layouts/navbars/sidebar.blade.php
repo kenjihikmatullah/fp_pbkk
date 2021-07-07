@@ -88,6 +88,18 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.product') }}">
+                        <i class="ni ni-circle-08 text-primary"></i> {{ __('Products') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.order') }}">
+                        <i class="ni ni-circle-08 text-primary"></i> {{ __('Orders') }}
+                    </a>
+                </li>
+
                 <!-- Profile -->
                 @if(false)
                 <li class="nav-item">
