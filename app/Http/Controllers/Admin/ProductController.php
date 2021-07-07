@@ -19,12 +19,20 @@ class ProductController extends Controller
 
     public function create()
     {
-
+        return view('admin.product.create');
     }
 
     public function store(Request $request)
     {
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'weight' => $request->weight,
+            'price' => $request->price,
+            'stock' => $request->stock
+        ]);
 
+        return redirect()->route('admin.product');
     }
 
     public function edit($id)
@@ -40,5 +48,6 @@ class ProductController extends Controller
     public function delete($id)
     {
         
+
     }
 }
