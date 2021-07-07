@@ -1,10 +1,32 @@
 @extends('admin.layouts.app')
 
+@section('more_css')
+  <style>
+  p {
+    margin: 0;
+  }
+
+  .product-item {
+    background: white;
+    margin-top: 16px;
+    padding: 16px;
+  }
+</style>
+@endsection
+
 @section('content')
 <div class="bg-primary container-fluid pb-6 pt-5">
   <div class="row">
     <div class="col-12 mt-4">
       <div class="card-body">
+        @foreach($order->productSnapshots as $product)
+        <div class="product-item">
+          <p>Nama Produk: {{ $product->name }}</p>
+          <p>Jumlah: {{ $product->quantity }}</p>
+        </div>
+        @endforeach
+
+        <br />
 
         <!-- Body -->
         <form method="POST" action="{{ route('admin.order.update', ['id' => $order->id]) }}">
