@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin as Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('cart');
     Route::post('/', [CartController::class, 'store'])->name('cart.store');
   });
+});
+
+Route::middleware('auth')->group(function () {
+  Route::prefix('admin')->group(function () {
+    Route::prefix('products')->group(function () {
+      Route::get('/', [Admin\ProductController::class, 'index'])->name('admin.product');
+      Route::get('/create', [Admin\ProductController::class, 'create'])->name('admin.product.create');
+      Route::post('/', [Admin\ProductController::class, 'store'])->name('admin.product.store');
+      Route::get('/{id}/edit', [Admin\ProductController::class, 'edit'])->name('admin.product.edit');
+      Route::put('/{id}', [Admin\ProductController::class, 'update'])->name('admin.product.update');
+      Route::delete('/{id}', [Admin\ProductController::class, 'delete'])->name('admin.product.delete');
+    });
+  });
+});
+
+Route::prefix('profile')->group(function () {
+  Route::get('edit', [HomeController::class, 'index'])->name('profile.edit');
 });
