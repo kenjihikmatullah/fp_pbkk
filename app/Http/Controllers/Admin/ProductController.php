@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        
+
         return view('admin.product.index', [
             'products' => $products
         ]);
@@ -37,17 +37,25 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $product = Product::find($id);
 
+        return view('admin.product.edit', ['product' => $product]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        Product::where('id', $id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'weight' => $request->weight,
+            'price' => $request->price,
+            'stock' => $request->stock
+        ]);
 
+        return redirect()->route('admin.product');
     }
 
     public function delete($id)
     {
-        
-
     }
 }
